@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#fbd3e9,#bbd2c5,#a1c4fd);
+overflow:hidden;
+position:relative;
+}
+
+/* glowing particles */
+
+.particle{
+position:absolute;
+width:8px;
+height:8px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px white,0 0 20px white;
+animation:particles 10s linear infinite;
+opacity:0.7;
+}
+
+@keyframes particles{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-800px);
+opacity:0;
+}
+
+}
+
+/* floating icons */
+
+.icon{
+position:absolute;
+font-size:35px;
+color:white;
+opacity:0.6;
+animation:floatIcon 15s ease-in-out infinite;
+}
+
+.icon1{ top:80%; left:10%; }
+.icon2{ top:60%; left:85%; }
+.icon3{ top:20%; left:70%; }
+.icon4{ top:30%; left:15%; }
+.icon5{ top:75%; left:50%; }
+
+@keyframes floatIcon{
+
+0%{ transform:translateY(0px); }
+50%{ transform:translateY(-60px); }
+100%{ transform:translateY(0px); }
+
+}
+
+/* glass card */
+
+.register-card{
+position:relative;
+z-index:5;
+width:100%;
+max-width:380px;
+padding:40px;
+border-radius:20px;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+.register-card h3{
+text-align:center;
+margin-bottom:25px;
+font-weight:600;
+color:#444;
+}
+
+/* inputs */
+
+.form-control{
+border-radius:10px;
+padding:12px;
+border:none;
+background:rgba(255,255,255,0.8);
+}
+
+.form-control:focus{
+box-shadow:0 0 10px rgba(255,182,193,0.6);
+}
+
+/* button */
+
+.btn-register{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-register:hover{
+transform:scale(1.05);
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* login link */
+
+.login-link{
+text-align:center;
+margin-top:15px;
+font-size:14px;
+}
+
+.login-link a{
+color:#444;
+font-weight:600;
+text-decoration:none;
+}
+
+.login-link a:hover{
+text-decoration:underline;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- glowing particles -->
+<div class="particle" style="left:10%; animation-delay:1s;"></div>
+<div class="particle" style="left:30%; animation-delay:3s;"></div>
+<div class="particle" style="left:50%; animation-delay:5s;"></div>
+<div class="particle" style="left:70%; animation-delay:2s;"></div>
+<div class="particle" style="left:90%; animation-delay:4s;"></div>
+<div class="particle" style="left:40%; animation-delay:6s;"></div>
+
+<!-- floating icons -->
+<i class="fa-solid fa-spa icon icon1"></i>
+<i class="fa-solid fa-leaf icon icon2"></i>
+<i class="fa-solid fa-pump-soap icon icon3"></i>
+<i class="fa-solid fa-seedling icon icon4"></i>
+<i class="fa-solid fa-flask icon icon5"></i>
+
+<!-- register card -->
+
+<div class="register-card">
+
+<h3>Register</h3>
+
+<form method="POST">
+
+<input class="form-control mb-3" name="username" placeholder="Username" required>
+
+<input class="form-control mb-3" type="password" name="password" placeholder="Password" required>
+
+<button class="btn-register" type="submit">Register</button>
+
+<p class="login-link">
+Already have an account?
+<a href="{{ url_for('login') }}">Login here</a>
+</p>
+
+</form>
+
+</div>
+
+</body>
+</html>
